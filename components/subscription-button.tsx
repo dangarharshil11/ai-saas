@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { Zap } from "lucide-react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 interface SubScriptionButtonProps {
   isPro: boolean;
@@ -21,7 +22,7 @@ export const SubScriptionButton = ({
 
       window.location.href = response.data.url;
     } catch (error) {
-      console.log("BILLING ERROR", error);
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
